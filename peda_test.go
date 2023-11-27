@@ -41,10 +41,10 @@ func TestUpdateGetData(t *testing.T) {
 
 func TestCreateNewUserRole(t *testing.T) {
 	var userdata User
-	userdata.Username = "raulmahya"
-	userdata.Password = "banget"
+	userdata.Username = "Megah"
+	userdata.Password = "admin"
 	userdata.Role = "admin"
-	mconn := SetConnection("MONGOULBI", "petapedia")
+	mconn := SetConnection("MONGOSTRING", "petapedia")
 	CreateNewUserRole(mconn, "user", userdata)
 }
 
@@ -157,7 +157,7 @@ func TestHashFunctionn(t *testing.T) {
 	mconn := SetConnection("MONGOULBI", "petapedia")
 	var userdata User
 	userdata.Username = "zz"
-	userdata.Password = "mahya"
+	userdata.Password = "megah"
 
 	filter := bson.M{"username": userdata.Username}
 	res := atdb.GetOneDoc[User](mconn, "user", filter)
@@ -189,7 +189,7 @@ func TestGeneratePrivateKeyPaseto(t *testing.T) {
 	privateKey, publicKey := watoken.GenerateKey()
 	fmt.Println(privateKey)
 	fmt.Println(publicKey)
-	hasil, err := watoken.Encode("bangsat", privateKey)
+	hasil, err := watoken.Encode("secret", privateKey)
 	fmt.Println(hasil, err)
 }
 
@@ -212,8 +212,8 @@ func TestHashFunction(t *testing.T) {
 func TestIsPasswordValid(t *testing.T) {
 	mconn := SetConnection("mongodb://raulgantengbanget:0nGCVlPPoCsXNhqG@ac-oilbpwk-shard-00-00.9ofhjs3.mongodb.net:27017,ac-oilbpwk-shard-00-01.9ofhjs3.mongodb.net:27017,ac-oilbpwk-shard-00-02.9ofhjs3.mongodb.net:27017/test?replicaSet=atlas-13x7kp-shard-0&ssl=true&authSource=admin", "petapedia")
 	var userdata User
-	userdata.Username = "bangsat"
-	userdata.Password = "ganteng"
+	userdata.Username = "abcd"
+	userdata.Password = "admin"
 
 	anu := IsPasswordValid(mconn, "user", userdata)
 	fmt.Println(anu)
